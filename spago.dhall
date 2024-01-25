@@ -1,10 +1,7 @@
 { name = "purescript-veither"
 , dependencies =
-  [ "aff"
-  , "arrays"
-  , "console"
+  [ "arrays"
   , "control"
-  , "effect"
   , "either"
   , "enums"
   , "foldable-traversable"
@@ -14,15 +11,12 @@
   , "newtype"
   , "partial"
   , "prelude"
-  , "psci-support"
   , "quickcheck"
-  , "quickcheck-laws"
   , "record"
-  , "spec"
   , "tuples"
   , "unsafe-coerce"
   , "variant"
   ]
 , packages = ./packages.dhall
-, sources = [ "src/**/*.purs", "test/**/*.purs" ]
+, sources = [ "src/**/*.purs" ]
 }

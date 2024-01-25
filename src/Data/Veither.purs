@@ -12,8 +12,6 @@ import Data.Foldable (class Foldable)
 import Data.Functor.Invariant (class Invariant, imapF)
 import Data.FunctorWithIndex (class FunctorWithIndex)
 import Data.List as L
-import Data.List.NonEmpty as NEL
-import Data.List.Types as LT
 import Data.Maybe (Maybe(..), fromJust, maybe, maybe')
 import Data.Newtype (class Newtype)
 import Data.Symbol (class IsSymbol, reflectSymbol)
@@ -26,7 +24,7 @@ import Prim.Row as Row
 import Prim.RowList as RL
 import Record (get)
 import Test.QuickCheck (class Arbitrary, class Coarbitrary, arbitrary, coarbitrary)
-import Test.QuickCheck.Gen (Gen, oneOf, frequency)
+import Test.QuickCheck.Gen (Gen, frequency, oneOf)
 import Type.Proxy (Proxy(..))
 import Unsafe.Coerce (unsafeCoerce)
 
@@ -520,8 +518,8 @@ genVeitherFrequncy rec = do
     vaList = mkFrequencyList rec (Proxy :: Proxy rowList)
 
     -- 5. Make the list nonempty, which is guaranteed to be safe because there will always be a ("_" :: a) row
-    vaNEL :: LT.NonEmptyList (Tuple Number (Gen (Variant ("_" :: a | errorRows))))
-    vaNEL = unsafePartial $ fromJust $ NEL.fromList vaList
+    vaNEL :: NEA.NonEmptyArray (Tuple Number (Gen (Variant ("_" :: a | errorRows))))
+    vaNEL = unsafePartial $ fromJust $ NEA.fromFoldable vaList
 
   -- 6. Use the function to determine how frequently a given label's generator should be used
   --     and use that generator to make a random variant whose rows fit the `Veither` rows

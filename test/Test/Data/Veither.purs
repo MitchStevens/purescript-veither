@@ -16,7 +16,7 @@ import Test.QuickCheck.Laws.Control as Control
 import Test.QuickCheck.Laws.Data as Data
 import Test.Spec (Spec, describe, it)
 import Test.Spec.Assertions (shouldEqual)
-import Type.Proxy (Proxy(..), Proxy2(..))
+import Type.Proxy (Proxy(..))
 
 type X r = (x :: Int | r)
 type Y r = (y :: Int | r)
@@ -221,8 +221,8 @@ checkVeitherTypeClassLaws = do
     Control.checkMonad prx2Veither
     Control.checkExtend prx2Veither
 
-prxVeither = Proxy ∷ Proxy (Veither (foo :: A) B)
-prx2Veither = Proxy2 ∷ Proxy2 (Veither (bar :: C))
+prxVeither = Proxy ∷ _ (Veither (foo :: A) B)
+prx2Veither = Proxy ∷ _ (Veither (bar :: C))
 
 checkGenerators :: Effect Unit
 checkGenerators = do
