@@ -1,0 +1,43 @@
+{
+  "name": "purescript-veither",
+  "homepage": "https://github.com/JordanMartinez/purescript-veither",
+  "authors": [
+    "Jordan Martinez <jordanalex.martinez@gmail.com>"
+  ],
+  "description": "A `Variant`-based `Either`",
+  "keywords": [
+    "variant",
+    "purescript",
+    "sum",
+    "type",
+    "either"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JordanMartinez/purescript-veither.git"
+  },
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "output",
+    "test",
+    "bower.json",
+    "package.json",
+    ".spago"
+  ],
+  "dependencies": {
+    "purescript-control": "v5.0.0",
+    "purescript-enums": "v5.0.0",
+    "purescript-maybe": "v5.0.0",
+    "purescript-quickcheck": "v7.0.0",
+    "purescript-transformers": "v5.0.0",
+    "purescript-variant": "v7.0.2"
+  },
+  "devDependencies": {
+    "purescript-psci-support": "v5.0.0",
+    "purescript-quickcheck-laws": "v6.0.0",
+    "purescript-spec": "v5.0.0"
+  }
+}
